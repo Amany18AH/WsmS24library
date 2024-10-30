@@ -1,0 +1,383 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY library "http://www.SVU_WSM/library.owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.SVU_WSM/library.owl#"
+     xml:base="http://www.SVU_WSM/library.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:library="http://www.SVU_WSM/library.owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://www.SVU_WSM/library.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.SVU_WSM/library.owl#belongsToLibrary -->
+
+    <owl:ObjectProperty rdf:about="&library;belongsToLibrary">
+        <rdfs:domain rdf:resource="&library;Book"/>
+        <rdfs:range rdf:resource="&library;Library"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.SVU_WSM/library.owl#hasAuthor -->
+
+    <owl:ObjectProperty rdf:about="&library;hasAuthor">
+        <rdfs:range rdf:resource="&library;Author"/>
+        <rdfs:domain rdf:resource="&library;Book"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.SVU_WSM/library.owl#hasGenre -->
+
+    <owl:ObjectProperty rdf:about="&library;hasGenre">
+        <rdfs:domain rdf:resource="&library;Book"/>
+        <rdfs:range rdf:resource="&library;Genre"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.SVU_WSM/library.owl#hasReview -->
+
+    <owl:ObjectProperty rdf:about="&library;hasReview">
+        <rdfs:domain rdf:resource="&library;Book"/>
+        <rdfs:range rdf:resource="&library;Review"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.SVU_WSM/library.owl#publishedBy -->
+
+    <owl:ObjectProperty rdf:about="&library;publishedBy">
+        <rdfs:domain rdf:resource="&library;Book"/>
+        <rdfs:range rdf:resource="&library;Publisher"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.SVU_WSM/library.owl#authorID -->
+
+    <owl:DatatypeProperty rdf:about="&library;authorID">
+        <rdfs:domain rdf:resource="&library;Author"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.SVU_WSM/library.owl#hasGenerName -->
+
+    <owl:DatatypeProperty rdf:about="&library;hasGenerName">
+        <rdfs:domain rdf:resource="&library;Genre"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.SVU_WSM/library.owl#hasISBN -->
+
+    <owl:DatatypeProperty rdf:about="&library;hasISBN">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&library;Book"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.SVU_WSM/library.owl#hasLibraryName -->
+
+    <owl:DatatypeProperty rdf:about="&library;hasLibraryName">
+        <rdfs:domain rdf:resource="&library;Library"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.SVU_WSM/library.owl#hasName -->
+
+    <owl:DatatypeProperty rdf:about="&library;hasName">
+        <rdfs:domain rdf:resource="&library;Person"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.SVU_WSM/library.owl#hasPublisherName -->
+
+    <owl:DatatypeProperty rdf:about="&library;hasPublisherName">
+        <rdfs:domain rdf:resource="&library;Publisher"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.SVU_WSM/library.owl#isLocatedIn -->
+
+    <owl:DatatypeProperty rdf:about="&library;isLocatedIn">
+        <rdfs:domain rdf:resource="&library;Library"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.SVU_WSM/library.owl#publishedInYear -->
+
+    <owl:DatatypeProperty rdf:about="&library;publishedInYear">
+        <rdfs:domain rdf:resource="&library;Book"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.SVU_WSM/library.owl#Author -->
+
+    <owl:Class rdf:about="&library;Author">
+        <rdfs:subClassOf rdf:resource="&library;Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.SVU_WSM/library.owl#Book -->
+
+    <owl:Class rdf:about="&library;Book"/>
+    
+
+
+    <!-- http://www.SVU_WSM/library.owl#Genre -->
+
+    <owl:Class rdf:about="&library;Genre"/>
+    
+
+
+    <!-- http://www.SVU_WSM/library.owl#Library -->
+
+    <owl:Class rdf:about="&library;Library"/>
+    
+
+
+    <!-- http://www.SVU_WSM/library.owl#Person -->
+
+    <owl:Class rdf:about="&library;Person"/>
+    
+
+
+    <!-- http://www.SVU_WSM/library.owl#Publisher -->
+
+    <owl:Class rdf:about="&library;Publisher"/>
+    
+
+
+    <!-- http://www.SVU_WSM/library.owl#Review -->
+
+    <owl:Class rdf:about="&library;Review">
+        <rdfs:subClassOf rdf:resource="&library;Person"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.SVU_WSM/library.owl#author1 -->
+
+    <owl:NamedIndividual rdf:about="&library;author1">
+        <rdf:type rdf:resource="&library;Author"/>
+        <authorID rdf:datatype="&xsd;int">1</authorID>
+        <hasName rdf:datatype="&xsd;string">Bassel AL-Khateeb</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.SVU_WSM/library.owl#author2 -->
+
+    <owl:NamedIndividual rdf:about="&library;author2">
+        <rdf:type rdf:resource="&library;Author"/>
+        <authorID rdf:datatype="&xsd;int">2
+</authorID>
+        <hasName rdf:datatype="&xsd;string">Wiliam SHaksper</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.SVU_WSM/library.owl#book1 -->
+
+    <owl:NamedIndividual rdf:about="&library;book1">
+        <rdf:type rdf:resource="&library;Book"/>
+        <hasISBN rdf:datatype="&xsd;string">125-126-002-898</hasISBN>
+        <publishedInYear rdf:datatype="&xsd;dateTime">2023</publishedInYear>
+        <hasAuthor rdf:resource="&library;author1"/>
+        <hasGenre rdf:resource="&library;gener1"/>
+        <belongsToLibrary rdf:resource="&library;library1"/>
+        <publishedBy rdf:resource="&library;publisher1"/>
+        <hasReview rdf:resource="&library;review1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.SVU_WSM/library.owl#book2 -->
+
+    <owl:NamedIndividual rdf:about="&library;book2">
+        <rdf:type rdf:resource="&library;Book"/>
+        <publishedInYear rdf:datatype="&xsd;dateTime">2020</publishedInYear>
+        <hasISBN rdf:datatype="&xsd;string">784-987-625-671</hasISBN>
+        <hasAuthor rdf:resource="&library;author2"/>
+        <hasGenre rdf:resource="&library;gener2"/>
+        <belongsToLibrary rdf:resource="&library;library1"/>
+        <belongsToLibrary rdf:resource="&library;library2"/>
+        <publishedBy rdf:resource="&library;publisher2"/>
+        <hasReview rdf:resource="&library;review1"/>
+        <hasReview rdf:resource="&library;review2"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.SVU_WSM/library.owl#gener1 -->
+
+    <owl:NamedIndividual rdf:about="&library;gener1">
+        <rdf:type rdf:resource="&library;Genre"/>
+        <hasGenerName rdf:datatype="&xsd;string">Fiction</hasGenerName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.SVU_WSM/library.owl#gener2 -->
+
+    <owl:NamedIndividual rdf:about="&library;gener2">
+        <rdf:type rdf:resource="&library;Genre"/>
+        <hasGenerName rdf:datatype="&xsd;string">nonFiction
+</hasGenerName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.SVU_WSM/library.owl#library1 -->
+
+    <owl:NamedIndividual rdf:about="&library;library1">
+        <rdf:type rdf:resource="&library;Library"/>
+        <isLocatedIn rdf:datatype="&xsd;string">Tartous</isLocatedIn>
+        <hasLibraryName rdf:datatype="&xsd;string">TartousLibrary</hasLibraryName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.SVU_WSM/library.owl#library2 -->
+
+    <owl:NamedIndividual rdf:about="&library;library2">
+        <rdf:type rdf:resource="&library;Library"/>
+        <isLocatedIn rdf:datatype="&xsd;string">Damascus</isLocatedIn>
+        <hasLibraryName rdf:datatype="&xsd;string">DamascusLibrary</hasLibraryName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.SVU_WSM/library.owl#publisher1 -->
+
+    <owl:NamedIndividual rdf:about="&library;publisher1">
+        <rdf:type rdf:resource="&library;Publisher"/>
+        <hasPublisherName rdf:datatype="&xsd;string">Ebaapublisher</hasPublisherName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.SVU_WSM/library.owl#publisher2 -->
+
+    <owl:NamedIndividual rdf:about="&library;publisher2">
+        <rdf:type rdf:resource="&library;Publisher"/>
+        <hasPublisherName rdf:datatype="&xsd;string">khederpublisher</hasPublisherName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.SVU_WSM/library.owl#review1 -->
+
+    <owl:NamedIndividual rdf:about="&library;review1">
+        <rdf:type rdf:resource="&library;Review"/>
+        <hasName rdf:datatype="&xsd;string">Amany</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.SVU_WSM/library.owl#review2 -->
+
+    <owl:NamedIndividual rdf:about="&library;review2">
+        <rdf:type rdf:resource="&library;Review"/>
+        <hasName rdf:datatype="&xsd;string">Lama</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&library;Book"/>
+            <rdf:Description rdf:about="&library;Genre"/>
+            <rdf:Description rdf:about="&library;Library"/>
+            <rdf:Description rdf:about="&library;Person"/>
+            <rdf:Description rdf:about="&library;Publisher"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+
